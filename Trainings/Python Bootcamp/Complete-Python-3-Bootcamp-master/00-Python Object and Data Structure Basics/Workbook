@@ -42,3 +42,90 @@ mystring[::3]
 mystring[2:7:2]
 mystring[::-1]
 'tinker'[1:4]
+
+name = 'Sam'
+
+##name[0] = 'P' strings dont suport item asignemnt
+
+last_letters = name[1:]
+last_letters
+
+'P' + last_letters
+
+x = 'Hello World'
+x + ' it is beautiful outside!'
+
+letter = 'z'
+letter*10
+twoletters = 'za'
+
+twoletters*10
+x = 'Hello World'
+x.upper()
+x.lower()
+x.capitalize()
+x.split()
+x.split('o')
+
+##Print Formatting with strings
+
+print('This is a string {}'.format('INSERTED'))
+print('The {2} {1} {0}'.format('fox','brown','quick'))
+
+result=100/777
+result
+print("The result was {r:.2}".format(r=result))
+
+name = 'Jose'
+print(f'Hello, his name is {name}')
+
+## Lists
+my_list = 'a b c d e f g h i j k'.split()
+my_list
+my_list.reverse()
+my_list
+my_list.sort()
+my_list
+
+mysortedlist=new_list.sort()
+mysortedlist
+type(mysortedlist) ## .sort method is in place and does not reassign have to do the below
+
+new_list.sort()
+mysortedlist = my_list
+mysortedlist
+
+#Input Output file
+
+with open('test.txt','a') as testtxt:
+    testtxt.write('Donald Duck \n' +
+                  'Test Line \n'+
+                  'I like Goofy the most')
+    
+myfile = open('test.txt')
+myfile.read()
+myfile.read()
+myfile.seek(0) ## moves cursor to position
+myfile.read()
+myfile.readlines()
+
+myfile = open('E:\\ProgramFiles\\IEXWork\\Trainings\\Python Bootcamp\\Complete-Python-3-Bootcamp-master\\00-Python Object and Data Structure Basics\\test.txt')
+
+myfile.readlines()
+
+import os
+os.getcwd()
+myfile.close()
+
+with open('E:\\ProgramFiles\\IEXWork\\Trainings\\Python Bootcamp\\Complete-Python-3-Bootcamp-master\\00-Python Object and Data Structure Basics\\test.txt',mode='a') as my_new_file:
+    my_new_file.write('Mickey, Minnie')
+
+with open('E:\\ProgramFiles\\IEXWork\\Trainings\\Python Bootcamp\\Complete-Python-3-Bootcamp-master\\00-Python Object and Data Structure Basics\\test.txt') as my_new_file:
+    print(my_new_file.read())
+
+with open('E:\\ProgramFiles\\IEXWork\\Trainings\\Python Bootcamp\\Complete-Python-3-Bootcamp-master\\00-Python Object and Data Structure Basics\\test.txt',mode='w') as my_new_file:
+    my_new_file.write('Mickey, Minnie')
+
+with open('E:\\ProgramFiles\\IEXWork\\Trainings\\Python Bootcamp\\Complete-Python-3-Bootcamp-master\\00-Python Object and Data Structure Basics\\test.txt') as my_new_file:
+    print(my_new_file.read())
+
