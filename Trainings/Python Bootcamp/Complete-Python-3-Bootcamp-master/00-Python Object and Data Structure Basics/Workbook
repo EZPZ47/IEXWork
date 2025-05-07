@@ -129,3 +129,5 @@ with open('E:\\ProgramFiles\\IEXWork\\Trainings\\Python Bootcamp\\Complete-Pytho
 with open('E:\\ProgramFiles\\IEXWork\\Trainings\\Python Bootcamp\\Complete-Python-3-Bootcamp-master\\00-Python Object and Data Structure Basics\\test.txt') as my_new_file:
     print(my_new_file.read())
 
+'{0} {1}'.format('Python','rules!')
+
