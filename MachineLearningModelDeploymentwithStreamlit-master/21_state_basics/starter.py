@@ -23,3 +23,7 @@ st.session_state['key'] = 'new value'
 st.session_state.attribute = 'updated value'
 
 # Delete item in state
+
+del st.session_state['key']
+
+del st.session_state.attribute

@@ -13,32 +13,26 @@ authenticator = stauth.Authenticate(
     config['credentials'],
     config['cookie']['name'],
     config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['preauthorized']
+    config['cookie']['expiry_days']
 )
 
 # Render the login widget
-name, authentication_status, username = authenticator.login('Login', 'main')
+try:
+    authenticator.login()
+except Exception as e:
+    st.error(e)
 
 # Authenticate users
-if st.session_state["authentication_status"]:
-    authenticator.logout('Logout', 'main', key='unique_key')
-    st.write(f'Welcome *{st.session_state["name"]}*')
+if st.session_state.get('authentication_status'):
+    authenticator.logout()
+    st.write(f'Welcome *{st.session_state.get("name")}*')
     st.title('Some content')
-elif st.session_state["authentication_status"] is False:
+elif st.session_state.get('authentication_status') is False:
     st.error('Username/password is incorrect')
-elif st.session_state["authentication_status"] is None:
+elif st.session_state.get('authentication_status') is None:
     st.warning('Please enter your username and password')
 
 # Password reset widget
-if authentication_status:
-    try:
-        if authenticator.reset_password(username, 'Reset password'):
-            with open('config.yaml', 'w') as file:
-                yaml.dump(config, file, default_flow_style=False)
-            st.success('Password modified successfully')
-    except Exception as e:
-        st.error(e)
 
 # Register new user
 try:
@@ -86,6 +80,6 @@ if authentication_status:
 
 st.write(st.session_state)
 # Hash passwords and store them in the YAML file. Only do this once
-# hasehd_pwd = stauth.Hasher(['123', '12345']).generate()
 
-# st.write(hasehd_pwd)
+hasehd_pwd = stauth.Hasher(['123', '12345']).generate()
+st.write(hasehd_pwd)
