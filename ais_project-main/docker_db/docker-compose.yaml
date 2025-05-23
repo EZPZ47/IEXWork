@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: ncheney17/ais-postgis:latest
+    container_name: ais-postgis
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgis_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ais-pgadmin
+    restart: unless-stopped
+    env_file:
+      - .env.pgadmin
+    environment:
+      PGADMIN_SERVER_JSON_FILE: "/pgadmin4/servers.json"
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+      - ./pgadmin-config/servers.json:/pgadmin4/servers.json:ro
+    depends_on:
+      - db
+
+volumes:
+  postgis_data:
+  pgadmin-data:

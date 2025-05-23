@@ -1,0 +1,14 @@
+{
+    "Servers": {
+      "1": {
+        "Name": "ais_project",
+        "Group": "Servers",
+        "Host": "ais-postgis",
+        "Port": 5432,
+        "MaintenanceDB": "mydatabase",
+        "Username": "aisuser",
+        "SSLMode": "prefer"
+      }
+    }
+  }
+  
